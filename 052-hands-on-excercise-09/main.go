@@ -15,5 +15,5 @@ const (
 func main() {
 	apt := 9001
 
-	fmt.Printf("The address is: "+street+" "+"apt %d"+", "+city, apt)
+	fmt.Printf("The address is: %v %v, %v", street, apt, city)
 }
