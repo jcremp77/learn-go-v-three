@@ -1,0 +1,2 @@
+When running "go install ." from this directory the .exe file will show up
+at the root of the 'learn-go-v-three' directory

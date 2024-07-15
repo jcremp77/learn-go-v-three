@@ -1,8 +1,4 @@
 github.com/jcremp77/dog v0.0.0-20240711103139-16d15d6bfa71 h1:F4dF3kLkS+Lck/qTdz3LdtR62vq520idB6/cxrdwasI=
 github.com/jcremp77/dog v0.0.0-20240711103139-16d15d6bfa71/go.mod h1:JPCQG0smjZfxusA0XKRD8jT7N7VzXw7BRNp313yaqag=
-github.com/jcremp77/puppy v0.0.0-20240711113451-8a57d53be1fa h1:V0hCQWQIq8GxC14i5v7BYKIVQvbA4niyQVn52dzXcB8=
-github.com/jcremp77/puppy v0.0.0-20240711113451-8a57d53be1fa/go.mod h1:U4wk805+zgTEZ1qj6POqsFJwRv14VnPwWjwvCR2axU8=
-github.com/jcremp77/puppy v1.1.0 h1:271Lp1R6SBcn8f2D+4JqxgT98HiITvvYJM7OsMPRXa8=
-github.com/jcremp77/puppy v1.1.0/go.mod h1:U4wk805+zgTEZ1qj6POqsFJwRv14VnPwWjwvCR2axU8=
 github.com/jcremp77/puppy v1.3.0 h1:y2LHBBr3d3LD+IFjHf8+R3FCBLOgGR1jWFC41fw6OyQ=
 github.com/jcremp77/puppy v1.3.0/go.mod h1:U4wk805+zgTEZ1qj6POqsFJwRv14VnPwWjwvCR2axU8=
