@@ -17,5 +17,5 @@ func main() {
 	fmt.Println(s3)
 	fmt.Println(s4)
 
-	puppy.From13()
+	puppy.From12()
 }
