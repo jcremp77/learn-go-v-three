@@ -1,10 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
+import "log"
 
-func main() {
+func main(tz string) int {
 
 	var timeZone = map[string]int{
 		"UTC": 0 * 60 * 60,
@@ -13,18 +11,15 @@ func main() {
 		"MST": -7 * 60 * 60,
 		"PST": -8 * 60 * 60,
 	}
-	
+
 	var seconds int
 	var ok bool
 	seconds, ok = timeZone[tz]
 	tz := "EST"
-	
-	func offset(tz string) int {
-		if seconds, ok := timeZone[tz]; ok {
-			return seconds
-		}
-		log.Println("unknown time zone:", tz)
-		return 0
+
+	if seconds, ok := timeZone[tz]; ok {
+		return seconds
 	}
-	
+	log.Println("unknown time zone:", tz)
+	return 0
 }

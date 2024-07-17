@@ -31,7 +31,7 @@ func main() {
 		"PST": -8 * 60 * 60,
 	}
 
-	offset := timeZone["EST"]
+	offset1 := timeZone["EST"]
 	fmt.Println(offset)
 	
 		var seconds int
