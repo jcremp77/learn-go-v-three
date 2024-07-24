@@ -14,19 +14,13 @@ func main() {
 	y := []float64{3, 1, 4, 2}
 	fmt.Println(medianTwo(y))
 	fmt.Println("after medianTwo", y)
+	// slice 'y' was never sorted as when the value of 'y'
+	// was passed to the function 'medianTwo' the value of 'y'
+	// was assigned to 'x', and 'x' was copied to slice 'y'
+	// which was part of a new array.
+	// The 'Println' statement above is referencing the slice
+	// of 'y' which was 'never sorted'
 	fmt.Println("---------------------")
-
-	// make a slice
-	a := []int{0, 1, 3, 4}
-	b := a
-	fmt.Println("a", a) // var 'a' is just a pointer to the array
-	fmt.Println("b", b) // var 'b' is just a pointer to the array
-	fmt.Println("len of array 'a'", len(b))
-	fmt.Println("cap of array 'a'", cap(b))
-	fmt.Println("---------------------")
-	a[0] = 7
-	fmt.Println("a", a)
-	fmt.Println("b", b)
 }
 
 // uses the same underlying array
@@ -45,15 +39,17 @@ func medianOne(x []float64) float64 {
 } // (2 + 3) / 2
 // 5 / 2 = 2.5
 
-func medianTwo(x []float64) float64 {
-	// allocate a new underlying array
+func medianTwo(x []float64) float64 { // {3, 1, 4, 2} passed to 'x'
+	// allocate a new underlying array for slice 'n'
 	n := make([]float64, len(x))
-	copy(n, x)
-	fmt.Println(n) // [3, 1, 4, 2]
+	copy(n, x) // contents of array underneath 'x' copied to new array for slice 'n'
+	fmt.Println("--------------------------")
+	fmt.Println("contents of slice 'n'", n) // [3, 1, 4, 2]
 
 	sort.Float64s(n)
-	i := len(n) / 2    // len(n) == 4; 4 / 2 = 2
-	fmt.Println(i)     // i := 2
+	fmt.Println("after sort 'n' is:", n)
+	i := len(n) / 2 // len(n) == 4; 4 / 2 = 2
+	// i := 2
 	if len(n)%2 == 1 { // 2%2 == 0; false
 		return n[i/2]
 		// when you divide
