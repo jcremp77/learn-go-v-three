@@ -35,6 +35,13 @@ func main() {
 		ltk: true,
 	}
 
+	sa2 := secretAgent{
+		person: person{
+			first: "Ralph",
+		},
+		ltk: true,
+	}
+
 	p2 := person{
 		first: "Jenny",
 	}
@@ -43,6 +50,7 @@ func main() {
 	// p2.speak()
 
 	saySomething(sa1)
+	saySomething(sa2)
 	saySomething(p2)
 }
 
