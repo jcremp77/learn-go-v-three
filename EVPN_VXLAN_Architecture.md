@@ -35,13 +35,13 @@ Example: 's1\-p1\-lf01' is interpreted as 'site1'\-'pod1'\-'leaf01'
 
 ## Architecture Summary
 
-1. Clos fabric
-2. eBGP for both the 'underlay' and 'overlays'.
-3. '2' x spines and '8' leaf nodes.
-4. '4' x leaf nodes for compute.
-5. '2' x leaf nodes for services.
-6. '2' x leaf nodes for borders.
-7. All leaf nodes will be in vPC pairs.
+- Clos fabric
+- eBGP for both the 'underlay' and 'overlays'.
+- 2 x spines and '8' leaf nodes.
+- 4 x leaf nodes for compute.
+- 2 x leaf nodes for services.
+- 2 x leaf nodes for borders.
+- All leaf nodes will be in vPC pairs.
 
 ## Fabric Routing
 
