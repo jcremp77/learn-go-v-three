@@ -1,10 +1,20 @@
 # NX-OS EVPN VXLAN Fabric Architecture
 
-Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and the 'overlays'. 
+Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and the 'overlays'.
+
+## Architecture Summary
+
+- Clos fabric
+- eBGP for both the 'underlay' and 'overlays'.
+- 2 x spines and '8' leaf nodes.
+- 4 x leaf nodes for compute.
+- 2 x leaf nodes for services.
+- 2 x leaf nodes for borders.
+- All leaf nodes will be in vPC pairs.
 
 ## Abreviations
 
-### Nodes
+#### Nodes
 
 CL	= Compute Leaf
 SL	= Service Leaf
@@ -17,33 +27,24 @@ SLP	= Service Leaf Pair
 BLP	= Border Leaf Pair
 :: = denotes physical link
 
-### Interfaces
+#### Interfaces
 
->e1.1 		= Ethernet1/1
->
->lf01.e1.1	= Leaf switch 01 Ethernet1/1
-
+e1.1 		= Ethernet1/1<br>
+<div>
+lf01.e1.1	= Leaf switch 01 Ethernet1/1<br>
+<div>
+<div>
 ## Fabric Naming Convention
 
->Single # 	= single digit
->
->Double ## 	= double digit
+Single # 	= single digit<br>
+<div>
+Double ## 	= double digit<br>
 
 \<site#\> \<pod#\> \<func + instance##\>; all names are lowercase.
 
 Example: 's1\-p1\-sp01' is interpreted as	'site1'\-'pod1'\-'spine01'
 
 Example: 's1\-p1\-lf01' is interpreted as 'site1'\-'pod1'\-'leaf01'
-
-## Architecture Summary
-
-- Clos fabric
-- eBGP for both the 'underlay' and 'overlays'.
-- 2 x spines and '8' leaf nodes.
-- 4 x leaf nodes for compute.
-- 2 x leaf nodes for services.
-- 2 x leaf nodes for borders.
-- All leaf nodes will be in vPC pairs.
 
 ## Fabric Routing
 
