@@ -19,13 +19,15 @@ BLP	= Border Leaf Pair
 
 ### Interfaces
 
-e1.1 		= Ethernet1/1
-lf01.e1.1	= 'Leaf switch 01' Ethernet1/1
+>e1.1 		= Ethernet1/1
+>
+>lf01.e1.1	= Leaf switch 01 Ethernet1/1
 
 ## Fabric Naming Convention
 
-Single # 	= single digit
-Double ## 	= double digit
+>Single # 	= single digit
+>
+>Double ## 	= double digit
 
 \<site#\> \<pod#\> \<func + instance##\>; all names are lowercase.
 
