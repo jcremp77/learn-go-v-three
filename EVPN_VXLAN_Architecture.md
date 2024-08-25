@@ -45,41 +45,49 @@ s1-p1-sp01
 <!-- blank -->
 Note: names are all lowercase
 
-## Fabric Routing
+## IPv4
 
-### IPv4
+|**Description**    | **CIDR**       | **Comment ** |
+|:------------------|:---------------|:-------------|
+| Underlay	        | 10.1.1.0/26    | eBGP         |
+| vPC Keepalive     | 10.1.1.64/27   |              |
+| Loopback0	        | not used       |              |
+| Loopback1	        | 10.0.1.0/27    | VTEP         |
 
-1. eBGP Underlay:	10.1.1.0/26
-2. VPC Keepalive: 	10.1.1.64/27
-3. Loop0:			N/A (unassigned due to issues with Nexus 9Kv)
-4. Loop1 (eVPN):	10.0.1.0/27
-5. Loop2 (overlay):	10.0.1.32/27
-6. Loop3 (overlay): 10.0.1.64/27
-7. Loop4 (overlay): 10.0.1.96/27
+Note: loopback0 will not be used due to a bug with N9Kv image and vPC.
 
-### VRF
 
-1. Underlay: 		Global (default)
-2. Customer 1:		Red
-3. Customer 2:		Blue
-4. Customer 3:		Green
+## VRF
 
-### ASN's
+|**Description**    | **VRF Name**   | **Comment ** |
+|:------------------|:---------------|:-------------|
+| Underlay	        | Global         | default      |
+| vPC Keepalive     | Keepalive	     |              |
+| Tenant A          | Red            | Customer 1   |
+| Tenant B          | Blue           | Customer 2   |
+| Tenant C          | Green          | Customer 3   |
+| ...               | ...            | ...          |
 
-1. 65500 - Spines
-2. 65501 - Leaf pair 01 *compute*
-3. 65502 - Leaf pair 02 *compute*
-4. 65503 - Leaf pair 03 *services*
-5. 65505 - Leaf pair 04 *border*
+
+## ASN's
+
+|**AS#**      | **Designation**               |
+|:------------|:------------------------------|
+| 65500	      | Spines                        |
+| 65501       | Compute leaf pair 1           |
+| 65502       | Compute leaf pair 2           |
+| 65503       | Service leaf pair 1           |
+| 65504       | Border leaf pair 1            |
+
 
 ## Fabric Nodes
 
 ### Spines
 
-1. Spines only connect to leaf nodes (E.g., no inter-switch links)
-2. Spine to leaf connectivity will leverage /31 subnets:
-	1. First IP assigned to spine side
-	2. Second IP assigned to leaf side
+- Spines only connect to leaf nodes (E.g., no inter-switch links)
+- Spine to leaf connectivity will leverage /31 subnets:
+>>First IP assigned to spine side
+>>Second IP assigned to leaf side
 	
 ### Leafs
 
