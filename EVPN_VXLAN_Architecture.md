@@ -15,18 +15,20 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 ## Abreviations
 
 #### Nodes
-<pre>
-**CL**	= Compute Leaf
-SL	= Service Leaf
-BL	= Border Leaf
-SP	= Spine
-LF	= Leaf
-LFP	= Leaf Pair
-CLP	= Compute Leaf Pair
-SLP	= Service Leaf Pair
-BLP	= Border Leaf Pair
-::	= physical link
-</pre>
+
+| ID      | Definition               |
+|:--------|:-------------------------|
+|**CL**	  | Compute Leaf             |
+|**SL**	  | Service Leaf             |
+|**BL**	  | Border Leaf              |
+|**SP**   | Spine                    |
+|**LF**	  | Leaf                     |
+|**LP**	  | Leaf Pair                |
+|**CLP**  | Compute Leaf Pair        |
+|**SLP**  | Service Leaf Pair        |
+|**BLP**  | Border Leaf Pair         |
+|**::**   | Physical Link            |
+
 #### Interfaces
 
 e1.1 		= Ethernet1/1<br>
