@@ -1,16 +1,17 @@
 # Architecture
-
+<!-- blank -->
 **EVPN/VXLAN Fabric with Nexus 9000v**
-
+<!-- blank -->
 - eBGP for both the 'underlay' and 'overlays'.
 - 2 x spines and '8' leaf nodes.
 - 4 x leaf nodes for compute.
 - 2 x leaf nodes for services.
 - 2 x leaf nodes for borders.
 - All leaf nodes will be in vPC pairs.
-
+<!-- blank -->
+<!-- blank -->
 ## Nodes Abbreviations and Usage
-
+<!-- blank -->
 |**ID**   | **Definition**           |
 |:--------|:-------------------------|
 | CL	  | Compute Leaf             |
@@ -26,17 +27,19 @@
 | \#      | single digit placeholder |
 | \##     | double digit placeholder |
 | nxx     | node name\+node instance |
-
-
+| Int.    | interface                |
+<!-- blank -->
+<!-- blank -->
 ## Interface Abbreviations
-
+<!-- blank -->
 |**Int abbr.**| **Definition**                |
 |:------------|:------------------------------|
 | e1.1	      | Ethernet1/1                   |
 | lf01.e1.1   | leaf switch 01 Ethernet1/1    |
-
+<!-- blank -->
+<!-- blank -->
 ## Fabric Naming Convention
-
+<!-- blank -->
 |**Site**|**Pod** |**nxx** |
 |:------:|:------:|:------:|
 | s1	 | p1     | sp01   |
@@ -44,21 +47,22 @@
 s1-p1-sp01
 <!-- blank -->
 Note: names are all lowercase
-
+<!-- blank -->
+<!-- blank -->
 ## IPv4
-
+<!-- blank -->
 |**Description**    | **CIDR**       | **Comment ** |
 |:------------------|:---------------|:-------------|
 | Underlay	        | 10.1.1.0/26    | eBGP         |
 | vPC Keepalive     | 10.1.1.64/27   |              |
 | Loopback0	        | not used       |              |
 | Loopback1	        | 10.0.1.0/27    | VTEP         |
-
+<!-- blank -->
 Note: loopback0 will not be used due to a bug with N9Kv image and vPC.
-
-
+<!-- blank -->
+<!-- blank -->
 ## VRF
-
+<!-- blank -->
 |**Description**    | **VRF Name**   | **Comment ** |
 |:------------------|:---------------|:-------------|
 | Underlay	        | Global         | default      |
@@ -67,10 +71,10 @@ Note: loopback0 will not be used due to a bug with N9Kv image and vPC.
 | Tenant B          | Blue           | Customer 2   |
 | Tenant C          | Green          | Customer 3   |
 | ...               | ...            | ...          |
-
-
+<!-- blank -->
+<!-- blank -->
 ## ASN's
-
+<!-- blank -->
 |**AS#**      | **Designation**               |
 |:------------|:------------------------------|
 | 65500	      | Spines                        |
@@ -78,59 +82,60 @@ Note: loopback0 will not be used due to a bug with N9Kv image and vPC.
 | 65502       | Compute leaf pair 2           |
 | 65503       | Service leaf pair 1           |
 | 65504       | Border leaf pair 1            |
-
-
-## Fabric Nodes
-
-### Spines
-
-- Spines only connect to leaf nodes (E.g., no inter-switch links)
-- Spine to leaf connectivity will leverage /31 subnets:
->>First IP assigned to spine side
->>Second IP assigned to leaf side
-	
-### Leafs
-
-1. Leaf pairs:
-	1. s1-p1-lf01 & s1-p1-lf02 		*leaf pair 1*
-	2. s1-p1-lf03 & s1-p1-lf04 		*leaf pair 2*
-	3. s1-p1-lf05 & s1-p1-lf06 		*leaf pair 3*
-	4. s1-p1-lf07 & s1-p1-lf08 		*leaf pair 4*
-2. vPC pair connectivity:
-	1. 4 x links for vPC
-	2. 2 x vPC keepalive
-	3. 2 x vPC peer-link
-3. vPC link details:
-	1. vPC keepalive:
-		1. 'Port-channel 10' 'L3':
-			1. Member: Ethernet1/8
-			2. Member: Ethernet1/9
-	2. vPC peer-link:
-		1. 'Port-channel 20' 'L2':
-			1. Member: Ethernet1/10
-			2. Member: Ethernet1/11
-4. vPC peer connectivity
-	1. 	lf01.e1.8 :: lf02.e1.8 		*port-channel10*
-	2.	lf01.e1.9 :: lf02.e1.9		*port-channel10*
-	3.	lf01.e1.10 :: lf02.e1.10	*port-channel20*
-	4.	lf01.e1.11 :: lf02.e1.11	*port-channel20*
-
+<!-- blank -->
+<!-- blank -->
+## Spines
+<!-- blank -->
+<pre>
+Spines 'only' connect to leaf nodes (E.g., no inter-switch links)
+</pre>
+<!-- blank -->
+<!-- blank -->
+## vPC Peering
+<!-- blank -->
+|**vPC Peer A**|**vPC Peer B**|**vPC Domain**|**Leaf Pair**|
+|:-------------|:-------------|:-------------|:------------|
+| s1-p1-lf01   | s1-p1-lf02   | 1            | CLP01       |
+| s1-p1-lf03   | s1-p1-lf04   | 1            | CLP02       |
+| s1-p1-sl01   | s1-p1-sl02   | 1            | SLP01       |
+| s1-p1-bl01   | s1-p1-bl02   | 1            | BLP01       |
+<!-- blank -->
+<!-- blank -->
+|**Peer Function**|**Peer Interface**|**PO No.**|**PO Mode**|
+|:----------------|:-----------------|:--------:|:---------:|
+| keepalive       | lf01.e1.8        | 10       | L3        |
+| keepalive       | lf01.e1.9        | 10       | L3        |
+| peer-link       | lf01.e1.10       | 20       | L2 Trunk  |
+| peer-link       | lf01.e1.11       | 20       | L2 Trunk  |
+<!-- blank -->
+<!-- blank -->
+|**vPC LP** |**Keepalive Int**|**Peer A IPv4**|**Peer B IPv4**|**Mask**|
+|:----------|:----------------|:--------------|:--------------|:-------|
+| CLP01     | port-channel10  | 10.1.1.64     | 10.1.1.65     | /31    |
+| CLP02     | port-channel10  | 10.1.1.66     | 10.1.1.67     | /31    |
+| SLP01     | port-channel10  | 10.1.1.68     | 10.1.1.69     | /31    |
+| CLP01     | port-channel10  | 10.1.1.70     | 10.1.1.71     | /31    |
+<!-- blank -->
+<!-- blank -->
 ## Fabric uplink details:
-	1. 	lf01.e1.1 :: sp01.e1.1 		10.1.1.1  :: 10.1.1.0	/31
-	2. 	lf01.e1.2 :: sp02.e1.1 		10.1.1.21 :: 10.1.1.20	/31
-	3. 	lf02.e1.1 :: sp01.e1.2 		10.1.1.3  :: 10.1.1.2	/31
-	4. 	lf02.e1.2 :: sp02.e1.2 		10.1.1.23 :: 10.1.1.22	/31
-	5. 	lf03.e1.1 :: sp01.e1.3 		10.1.1.5  :: 10.1.1.4	/31
-	6. 	lf03.e1.2 :: sp02.e1.3 		10.1.1.25 :: 10.1.1.24	/31
-	7. 	lf04.e1.1 :: sp01.e1.4 		10.1.1.7  :: 10.1.1.6	/31
-	8. 	lf04.e1.2 :: sp02.e1.4 		10.1.1.27 :: 10.1.1.26	/31
-	9. 	lf05.e1.1 :: sp01.e1.5 		10.1.1.9  :: 10.1.1.8	/31
-	10.	lf05.e1.2 :: sp02.e1.5 		10.1.1.29 :: 10.1.1.28	/31
-	11. lf06.e1.1 :: sp01.e1.6 		10.1.1.11 :: 10.1.1.10	/31
-	12.	lf06.e1.2 :: sp02.e1.6 		10.1.1.31 :: 10.1.1.30	/31
-	13.	lf07.e1.1 :: sp01.e1.7 		10.1.1.13 :: 10.1.1.12	/31
-	14.	lf07.e1.2 :: sp02.e1.7 		10.1.1.33 :: 10.1.1.32	/31
-	15.	lf08.e1.1 :: sp01.e1.8 		10.1.1.15 :: 10.1.1.14	/31
-	16. lf08.e1.2 :: sp02.e1.8 		10.1.1.35 :: 10.1.1.34	/31
+<!-- blank -->
+|**Spine.Int**|**Leaf.Int**|    |**SP IPv4**     |**LF IPv4**     |**Mask**|
+|:------------|:-----------|:--:|:---------------|:---------------|:------:|
+|sp01.e1.1    |lf01.e1.1   |:--:| 10.1.1.0       | 10.1.1.1       | /31    |
+|sp02.e1.1    |lf01.e1.2   |:--:| 10.1.1.20      | 10.1.1.21      | /31    |
+|sp01.e1.2    |lf02.e1.1   |:--:| 10.1.1.2       | 10.1.1.3       | /31    |
+|sp02.e1.2    |lf02.e1.2   |:--:| 10.1.1.22      | 10.1.1.23      | /31    |
+|sp01.e1.3    |lf03.e1.1   |:--:| 10.1.1.4       | 10.1.1.5       | /31    |
+|sp02.e1.3    |lf03.e1.2   |:--:| 10.1.1.24      | 10.1.1.25      | /31    |
+|sp01.e1.4    |lf04.e1.1   |:--:| 10.1.1.6       | 10.1.1.7       | /31    |
+|sp02.e1.4    |lf04.e1.2   |:--:| 10.1.1.26      | 10.1.1.27      | /31    |
+|sp01.e1.5    |sl01.e1.1   |:--:| 10.1.1.8       | 10.1.1.9       | /31    |
+|sp02.e1.5    |sl01.e1.2   |:--:| 10.1.1.28      | 10.1.1.29      | /31    |
+|sp01.e1.6    |sl02.e1.1   |:--:| 10.1.1.10      | 10.1.1.11      | /31    |
+|sp02.e1.6    |sl02.e1.2   |:--:| 10.1.1.30      | 10.1.1.31      | /31    |
+|sp01.e1.7    |bl01.e1.1   |:--:| 10.1.1.12      | 10.1.1.13      | /31    |
+|sp02.e1.7    |bl01.e1.2   |:--:| 10.1.1.32      | 10.1.1.33      | /31    |
+|sp01.e1.8    |bl02.e1.1   |:--:| 10.1.1.14      | 10.1.1.15      | /31    |
+|sp02.e1.8    |bl02.e1.2   |:--:| 10.1.1.34      | 10.1.1.35      | /31    |
 
 
