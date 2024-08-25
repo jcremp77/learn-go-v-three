@@ -12,11 +12,9 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 - 2 x leaf nodes for borders.
 - All leaf nodes will be in vPC pairs.
 
-## Abreviations
+## Nodes Abbreviations
 
-#### Nodes
-
-|**ID**   | **Definition**           |
+|**abbr.**   | **Definition**           |
 |:--------|:-------------------------|
 | CL	  | Compute Leaf             |
 | SL	  | Service Leaf             |
@@ -27,19 +25,22 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 | CLP     | Compute Leaf Pair        |
 | SLP     | Service Leaf Pair        |
 | BLP     | Border Leaf Pair         |
-| ::      | Physical Link            |
 
-#### Interfaces
 
-e1.1 		= Ethernet1/1<br>
-<br>
-lf01.e1.1	= Leaf switch 01 Ethernet1/1<br>
+## Interface Abbreviations
+
+|**abbr.**   | **Definition**                |
+|:-----------|:------------------------------|
+| e1.1	     | Ethernet1/1                   |
+| lf01.e1.1  | leaf switch 01 Ethernet1/1    |
 
 ## Fabric Naming Convention
 
-Single # 	= single digit<br>
-<div>
-Double ## 	= double digit<br>
+|**usage** | **Definition**                |
+|:--------:|:------------------------------|
+| \#	   | single digit placeholder      |
+| \##      | double digit placeholder      |
+
 
 \<site#\> \<pod#\> \<func + instance##\>; all names are lowercase.
 
