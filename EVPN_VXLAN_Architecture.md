@@ -16,7 +16,7 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 
 #### Nodes
 <pre>
-CL	= Compute Leaf
+**CL**	= Compute Leaf
 SL	= Service Leaf
 BL	= Border Leaf
 SP	= Spine
@@ -25,7 +25,7 @@ LFP	= Leaf Pair
 CLP	= Compute Leaf Pair
 SLP	= Service Leaf Pair
 BLP	= Border Leaf Pair
-::  = physical link
+::	= physical link
 </pre>
 #### Interfaces
 
