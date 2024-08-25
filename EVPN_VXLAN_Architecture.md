@@ -2,12 +2,14 @@
 <!-- blank -->
 **EVPN/VXLAN Fabric with Nexus 9000v**
 <!-- blank -->
-- eBGP for both the 'underlay' and 'overlays'.
-- 2 x spines and '8' leaf nodes.
-- 4 x leaf nodes for compute.
-- 2 x leaf nodes for services.
-- 2 x leaf nodes for borders.
-- All leaf nodes will be in vPC pairs.
+<pre>
+1. eBGP for both the 'underlay' and 'overlays'.
+2. 2 x spines and '8' leaf nodes.
+3. 4 x leaf nodes for compute.
+4. 2 x leaf nodes for services.
+5. 2 x leaf nodes for borders.
+6. Leaf nodes will be in vPC pairs.
+</pre>
 <!-- blank -->
 <!-- blank -->
 ## Purpose
@@ -65,7 +67,9 @@ Note: names are all lowercase
 | Loopback0	        | not used       |              |
 | Loopback1	        | 10.0.1.0/27    | VTEP         |
 <!-- blank -->
+<pre>
 Note: loopback0 will not be used due to a bug with N9Kv image and vPC.
+</pre>
 <!-- blank -->
 <!-- blank -->
 ## VRF
