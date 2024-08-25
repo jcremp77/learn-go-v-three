@@ -13,6 +13,7 @@
 	2. Install 'openssh' and generate key-pair for later use.
 <!-- blank -->
 2. Setup out-of-band network for management access to/from all nodes including the tools server.
+<!-- blank -->
 3. Establish console session to all network nodes and perform the following tasks:
 	1. Enter configuration mode: **Config t**
 	2. Run the following command: **boot nxos bootflash:/nxos.9.3.9.bin**
@@ -28,14 +29,12 @@
 <!-- blank -->
 4. From tools server - scp the public key into bootflash:
 	<pre>
-	Ex. Ubuntu: "scp ~/.ssh/id_rsa.pub ansible@192.168.1.161:"
-	</pre>
-<!-- blank -->
+	Ex. Ubuntu: "scp ~/.ssh/id_rsa.pub ansible@192.168.1.161:"</pre>
 5. From switch - enable authentication of the previously created user via ssh keys
 	<pre>
-	example: "username ansible sshkey file bootflash:id_rsa_ansible.pub"
-	</pre>
+	example: "username ansible sshkey file bootflash:id_rsa_ansible.pub"</pre>
 6. Setup Ansible to login using ssh_private_key_file as opposed to password.
+<!-- blank -->
 7. ...
 		
 	
