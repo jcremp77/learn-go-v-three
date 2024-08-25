@@ -23,8 +23,7 @@
 	7. Configure management interface:
 		<pre>
 		interface mgmt 0
-		ip address ip.ip.ip.ip/cidr
-		</pre>
+		ip address ip.ip.ip.ip/cidr</pre>
 	8. Create user and role: **user ansible role network-admin password somepassword**
 <!-- blank -->
 4. From tools server - scp the public key into bootflash:
