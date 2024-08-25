@@ -16,18 +16,18 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 
 #### Nodes
 
-|***ID*** | ***Definition***         |
+|**ID**   | **Definition**           |
 |:--------|:-------------------------|
-|**CL**	  | Compute Leaf             |
-|**SL**	  | Service Leaf             |
-|**BL**	  | Border Leaf              |
-|**SP**   | Spine                    |
-|**LF**	  | Leaf                     |
-|**LP**	  | Leaf Pair                |
-|**CLP**  | Compute Leaf Pair        |
-|**SLP**  | Service Leaf Pair        |
-|**BLP**  | Border Leaf Pair         |
-|**::**   | Physical Link            |
+| CL	  | Compute Leaf             |
+| SL	  | Service Leaf             |
+| BL	  | Border Leaf              |
+| SP      | Spine                    |
+| LF	  | Leaf                     |
+| LP	  | Leaf Pair                |
+| CLP     | Compute Leaf Pair        |
+| SLP     | Service Leaf Pair        |
+| BLP     | Border Leaf Pair         |
+| ::      | Physical Link            |
 
 #### Interfaces
 
