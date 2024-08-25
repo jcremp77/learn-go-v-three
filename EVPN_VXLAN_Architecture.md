@@ -10,6 +10,11 @@
 - All leaf nodes will be in vPC pairs.
 <!-- blank -->
 <!-- blank -->
+## Purpose
+<!-- blank -->
+**Test bed for network automation using Ansible, Jinja2, and Terraform.**
+<!-- blank -->
+<!-- blank -->
 ## Nodes Abbreviations and Usage
 <!-- blank -->
 |**ID**   | **Definition**           |
@@ -44,9 +49,11 @@
 |:------:|:------:|:------:|
 | s1	 | p1     | sp01   |
 <!-- blank -->
-s1-p1-sp01
-<!-- blank -->
+<pre>
+Hostname: s1-p1-sp01
+	
 Note: names are all lowercase
+</pre>
 <!-- blank -->
 <!-- blank -->
 ## IPv4
