@@ -16,7 +16,7 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 
 #### Nodes
 
-| ID      | Definition               |
+|***ID*** | ***Definition***         |
 |:--------|:-------------------------|
 |**CL**	  | Compute Leaf             |
 |**SL**	  | Service Leaf             |
