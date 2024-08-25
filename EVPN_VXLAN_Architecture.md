@@ -41,7 +41,9 @@
 |:------:|:------:|:------:|
 | s1	 | p1     | sp01   |
 <pre>
-**s1-p1-sp01** \- names are all lowercase
+s1-p1-sp01
+
+Note: names are all lowercase
 </pre>
 
 ## Fabric Routing
