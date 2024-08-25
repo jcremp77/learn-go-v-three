@@ -1,10 +1,7 @@
-# NX-OS EVPN VXLAN Fabric Architecture
+# Architecture
 
-Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and the 'overlays'.
+**EVPN/VXLAN Fabric running eBGP for both the 'underlay' and 'overlays'**
 
-## Architecture Summary
-
-- Clos fabric
 - eBGP for both the 'underlay' and 'overlays'.
 - 2 x spines and '8' leaf nodes.
 - 4 x leaf nodes for compute.
@@ -12,9 +9,9 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 - 2 x leaf nodes for borders.
 - All leaf nodes will be in vPC pairs.
 
-## Nodes Abbreviations
+## Nodes Abbreviations and Usage
 
-|**abbr.**   | **Definition**           |
+|**ID**   | **Definition**           |
 |:--------|:-------------------------|
 | CL	  | Compute Leaf             |
 | SL	  | Service Leaf             |
@@ -25,28 +22,27 @@ Covers the deployment of a spine/leaf fabric using eBGP as the 'underlay' and th
 | CLP     | Compute Leaf Pair        |
 | SLP     | Service Leaf Pair        |
 | BLP     | Border Leaf Pair         |
+| ::      | Border Leaf Pair         |
+| \#      | single digit placeholder |
+| \##     | double digit placeholder |
+| nxx     | node name\+node instance |
 
 
 ## Interface Abbreviations
 
-|**abbr.**   | **Definition**                |
-|:-----------|:------------------------------|
-| e1.1	     | Ethernet1/1                   |
-| lf01.e1.1  | leaf switch 01 Ethernet1/1    |
+|**Int abbr.**| **Definition**                |
+|:------------|:------------------------------|
+| e1.1	      | Ethernet1/1                   |
+| lf01.e1.1   | leaf switch 01 Ethernet1/1    |
 
 ## Fabric Naming Convention
 
-|**usage** | **Definition**                |
-|:--------:|:------------------------------|
-| \#	   | single digit placeholder      |
-| \##      | double digit placeholder      |
-
-
-\<site#\> \<pod#\> \<func + instance##\>; all names are lowercase.
-
-Example: 's1\-p1\-sp01' is interpreted as	'site1'\-'pod1'\-'spine01'
-
-Example: 's1\-p1\-lf01' is interpreted as 'site1'\-'pod1'\-'leaf01'
+|**Site**|**Pod** |**nxx** |
+|:------:|:------:|:------:|
+| s1	 | p1     | sp01   |
+<pre>
+**s1-p1-sp01** \- names are all lowercase
+</pre>
 
 ## Fabric Routing
 
