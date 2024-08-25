@@ -1,6 +1,6 @@
 # Architecture
 
-**EVPN/VXLAN Fabric running eBGP for both the 'underlay' and 'overlays'**
+**EVPN/VXLAN Fabric with Nexus 9000v**
 
 - eBGP for both the 'underlay' and 'overlays'.
 - 2 x spines and '8' leaf nodes.
@@ -40,11 +40,10 @@
 |**Site**|**Pod** |**nxx** |
 |:------:|:------:|:------:|
 | s1	 | p1     | sp01   |
-<pre>
+<!-- blank -->
 s1-p1-sp01
-
+<!-- blank -->
 Note: names are all lowercase
-</pre>
 
 ## Fabric Routing
 
