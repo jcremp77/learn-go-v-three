@@ -15,26 +15,26 @@
 2. Setup out-of-band network for management access to/from all nodes including the tools server.
 <!-- blank -->
 3. Establish console session to all network nodes and perform the following tasks:
-	1. Enter configuration mode: **Config t**
-	2. Run the following command: **boot nxos bootflash:/nxos.9.3.9.bin**
-	3. Save configuration: **copy run start**
-	4. Change the hostname: **hostname s1-p1-sp01**
-	5. Generate crypto key: **cry key gen rsa mod 2048**
-	6. Add Secure-Copy: **feature scp-server**
-	7. Configure management interface:
+<!-- blank -->
+4. Configure nxos boot: <pre>**boot nxos bootflash:/nxos.9.3.9.bin**</pre>
+<!-- blank -->
+5. Change the hostname: <pre>**hostname s1-p1-sp01**</pre>
+<!-- blank -->
+6. Generate crypto key: <pre>**cry key gen rsa mod 2048**<pre>
+<!-- blank -->
+7. Add Secure-Copy: <pre>**feature scp-server**</pre>
+<!-- blank -->
+8. Configure management interface:
 		<pre>
 		interface mgmt 0
 		ip address ip.ip.ip.ip/cidr</pre>
-	8. Create user and role: **user ansible role network-admin password somepassword**
+9. Create user and role: <pre>**user ansible role network-admin password somepassword**</pre>
 <!-- blank -->
-4. From tools server - scp the public key into bootflash:
-	<pre>
-	Ex. Ubuntu: "scp ~/.ssh/id_rsa.pub ansible@192.168.1.161:"</pre>
-5. From switch - enable authentication of the previously created user via ssh keys
-	<pre>
-	example: "username ansible sshkey file bootflash:id_rsa_ansible.pub"</pre>
-6. Setup Ansible to login using ssh_private_key_file as opposed to password.
+10. From tools server - copy ssh public key to switch: <pre>**scp ~/.ssh/id_rsa.pub ansible@192.168.1.161:**</pre>
 <!-- blank -->
-7. ...
+11. From switch - enable authentication of the previously created user via ssh keys:
+	<pre>**username ansible sshkey file bootflash:id_rsa_ansible.pub**</pre>
+12. Setup Ansible to login using ssh_private_key_file as opposed to password.
+...
 		
 	
